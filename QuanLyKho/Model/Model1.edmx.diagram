@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="525a6e9c6ea5492bae1ff4f3646b5139" Name="Diagram1">
+        <EntityTypeShape EntityType="QLKModel.hanghoa" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKModel.khachhang" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKModel.kho" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKModel.phieunhap" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKModel.phieuxuat" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKModel.sysdiagram" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="QLKModel.FK__phieunhap__mahh__108B795B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieunhap__mahh__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieuxuat__mahh__117F9D94" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieuxuat__mahh__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieunhap__makh__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieunhap__makh__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieuxuat__makh__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieuxuat__makh__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieunhap__makh__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieunhap__makh__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieuxuat__makh__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKModel.FK__phieuxuat__makh__1FCDBCEB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

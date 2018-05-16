@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="hanghoa">
+    <Key>
+      <PropertyRef Name="mahh" />
+    </Key>
+    <Property Name="mahh" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="tenhh" Type="nvarchar" MaxLength="50" />
+    <Property Name="slton" Type="int" />
+    <Property Name="gia" Type="float" />
+  </EntityType>
+  <EntityType Name="khachhang">
+    <Key>
+      <PropertyRef Name="makh" />
+    </Key>
+    <Property Name="makh" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="tenkh" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="kho">
+    <Key>
+      <PropertyRef Name="makho" />
+    </Key>
+    <Property Name="makho" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="tenkho" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="phieunhap">
+    <Key>
+      <PropertyRef Name="mahh" />
+    </Key>
+    <Property Name="manhap" Type="nchar" MaxLength="10" />
+    <Property Name="ngaynhap" Type="date" />
+    <Property Name="makh" Type="nchar" MaxLength="10" />
+    <Property Name="diengiai" Type="nvarchar" MaxLength="50" />
+    <Property Name="mahh" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="sl" Type="int" />
+  </EntityType>
+  <EntityType Name="phieuxuat">
+    <Key>
+      <PropertyRef Name="mahh" />
+    </Key>
+    <Property Name="maxuat" Type="nchar" MaxLength="10" />
+    <Property Name="ngayxuat" Type="date" />
+    <Property Name="makh" Type="nchar" MaxLength="10" />
+    <Property Name="diengiai" Type="nvarchar" MaxLength="50" />
+    <Property Name="mahh" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="sl" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__phieunhap__mahh__108B795B">
+    <End Role="hanghoa" Type="Self.hanghoa" Multiplicity="1" />
+    <End Role="phieunhap" Type="Self.phieunhap" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="hanghoa">
+        <PropertyRef Name="mahh" />
+      </Principal>
+      <Dependent Role="phieunhap">
+        <PropertyRef Name="mahh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieunhap__mahh__1B0907CE">
+    <End Role="hanghoa" Type="Self.hanghoa" Multiplicity="1" />
+    <End Role="phieunhap" Type="Self.phieunhap" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="hanghoa">
+        <PropertyRef Name="mahh" />
+      </Principal>
+      <Dependent Role="phieunhap">
+        <PropertyRef Name="mahh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieunhap__makh__1273C1CD">
+    <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+    <End Role="phieunhap" Type="Self.phieunhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khachhang">
+        <PropertyRef Name="makh" />
+      </Principal>
+      <Dependent Role="phieunhap">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieunhap__makh__145C0A3F">
+    <End Role="kho" Type="Self.kho" Multiplicity="0..1" />
+    <End Role="phieunhap" Type="Self.phieunhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kho">
+        <PropertyRef Name="makho" />
+      </Principal>
+      <Dependent Role="phieunhap">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieunhap__makh__1CF15040">
+    <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+    <End Role="phieunhap" Type="Self.phieunhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khachhang">
+        <PropertyRef Name="makh" />
+      </Principal>
+      <Dependent Role="phieunhap">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieunhap__makh__1ED998B2">
+    <End Role="kho" Type="Self.kho" Multiplicity="0..1" />
+    <End Role="phieunhap" Type="Self.phieunhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kho">
+        <PropertyRef Name="makho" />
+      </Principal>
+      <Dependent Role="phieunhap">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieuxuat__mahh__117F9D94">
+    <End Role="hanghoa" Type="Self.hanghoa" Multiplicity="1" />
+    <End Role="phieuxuat" Type="Self.phieuxuat" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="hanghoa">
+        <PropertyRef Name="mahh" />
+      </Principal>
+      <Dependent Role="phieuxuat">
+        <PropertyRef Name="mahh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieuxuat__mahh__1BFD2C07">
+    <End Role="hanghoa" Type="Self.hanghoa" Multiplicity="1" />
+    <End Role="phieuxuat" Type="Self.phieuxuat" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="hanghoa">
+        <PropertyRef Name="mahh" />
+      </Principal>
+      <Dependent Role="phieuxuat">
+        <PropertyRef Name="mahh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieuxuat__makh__1367E606">
+    <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+    <End Role="phieuxuat" Type="Self.phieuxuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khachhang">
+        <PropertyRef Name="makh" />
+      </Principal>
+      <Dependent Role="phieuxuat">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieuxuat__makh__15502E78">
+    <End Role="kho" Type="Self.kho" Multiplicity="0..1" />
+    <End Role="phieuxuat" Type="Self.phieuxuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kho">
+        <PropertyRef Name="makho" />
+      </Principal>
+      <Dependent Role="phieuxuat">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieuxuat__makh__1DE57479">
+    <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+    <End Role="phieuxuat" Type="Self.phieuxuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khachhang">
+        <PropertyRef Name="makh" />
+      </Principal>
+      <Dependent Role="phieuxuat">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phieuxuat__makh__1FCDBCEB">
+    <End Role="kho" Type="Self.kho" Multiplicity="0..1" />
+    <End Role="phieuxuat" Type="Self.phieuxuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kho">
+        <PropertyRef Name="makho" />
+      </Principal>
+      <Dependent Role="phieuxuat">
+        <PropertyRef Name="makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLKModelStoreContainer">
+    <EntitySet Name="hanghoa" EntityType="Self.hanghoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kho" EntityType="Self.kho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="phieunhap" EntityType="Self.phieunhap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="phieuxuat" EntityType="Self.phieuxuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__phieunhap__mahh__108B795B" Association="Self.FK__phieunhap__mahh__108B795B">
+      <End Role="hanghoa" EntitySet="hanghoa" />
+      <End Role="phieunhap" EntitySet="phieunhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieunhap__mahh__1B0907CE" Association="Self.FK__phieunhap__mahh__1B0907CE">
+      <End Role="hanghoa" EntitySet="hanghoa" />
+      <End Role="phieunhap" EntitySet="phieunhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieunhap__makh__1273C1CD" Association="Self.FK__phieunhap__makh__1273C1CD">
+      <End Role="khachhang" EntitySet="khachhang" />
+      <End Role="phieunhap" EntitySet="phieunhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieunhap__makh__145C0A3F" Association="Self.FK__phieunhap__makh__145C0A3F">
+      <End Role="kho" EntitySet="kho" />
+      <End Role="phieunhap" EntitySet="phieunhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieunhap__makh__1CF15040" Association="Self.FK__phieunhap__makh__1CF15040">
+      <End Role="khachhang" EntitySet="khachhang" />
+      <End Role="phieunhap" EntitySet="phieunhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieunhap__makh__1ED998B2" Association="Self.FK__phieunhap__makh__1ED998B2">
+      <End Role="kho" EntitySet="kho" />
+      <End Role="phieunhap" EntitySet="phieunhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieuxuat__mahh__117F9D94" Association="Self.FK__phieuxuat__mahh__117F9D94">
+      <End Role="hanghoa" EntitySet="hanghoa" />
+      <End Role="phieuxuat" EntitySet="phieuxuat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieuxuat__mahh__1BFD2C07" Association="Self.FK__phieuxuat__mahh__1BFD2C07">
+      <End Role="hanghoa" EntitySet="hanghoa" />
+      <End Role="phieuxuat" EntitySet="phieuxuat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieuxuat__makh__1367E606" Association="Self.FK__phieuxuat__makh__1367E606">
+      <End Role="khachhang" EntitySet="khachhang" />
+      <End Role="phieuxuat" EntitySet="phieuxuat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieuxuat__makh__15502E78" Association="Self.FK__phieuxuat__makh__15502E78">
+      <End Role="kho" EntitySet="kho" />
+      <End Role="phieuxuat" EntitySet="phieuxuat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieuxuat__makh__1DE57479" Association="Self.FK__phieuxuat__makh__1DE57479">
+      <End Role="khachhang" EntitySet="khachhang" />
+      <End Role="phieuxuat" EntitySet="phieuxuat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phieuxuat__makh__1FCDBCEB" Association="Self.FK__phieuxuat__makh__1FCDBCEB">
+      <End Role="kho" EntitySet="kho" />
+      <End Role="phieuxuat" EntitySet="phieuxuat" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
