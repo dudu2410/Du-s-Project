@@ -20,23 +20,7 @@ namespace QuanLyKho.myUserControl
     /// Interaction logic for dsHangHoa.xaml
     /// </summary>
     public partial class dsHangHoa : UserControl
-    {
-
-        //public class hanghoa
-        //{
-        //    public hanghoa()
-        //    {
-        //        mahh = "";
-        //        tenhh = "";
-        //        slton = 0;
-        //        gia = 0;
-        //    }
-        //    public string mahh { get; set; }
-        //    public string tenhh { get; set; }
-        //    public int slton { get; set; }
-        //    public double gia { get; set; }
-
-        //}
+    {       
         public dsHangHoa()
         {
             InitializeComponent();
@@ -46,24 +30,44 @@ namespace QuanLyKho.myUserControl
         private void LoadDuLieu()
         {
             QLKEntities db = new QLKEntities();
-            lvdsHangHoa.ItemsSource = db.hanghoas.ToList();
-           
-            //var a = DataProvider.Ins.DB.hanghoas.ToList();
-            //List <hanghoa> b= new List<hanghoa>();
-          
+            lvdsHangHoa.ItemsSource = db.hanghoas.ToList();          
+        }
+                
 
-            //lvdsHangHoa.ItemsSource = ;
+        
+
+        private void Click_Them(object sender, RoutedEventArgs e)
+        {
+            ThemHangHoa a = new ThemHangHoa();
+            a.ShowDialog();
+            LoadDuLieu();
         }
 
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Click_Xoa(object sender, RoutedEventArgs e)
         {
-
+            if(lvdsHangHoa.SelectedItem !=null)
+            {
+                var a = new hanghoa();
+                a = (hanghoa)lvdsHangHoa.SelectedItem;
+                using (var db = new QLKEntities())
+                {
+                    var delete = (from d in db.hanghoas where d.mahh == a.mahh select d).Single();
+                    db.hanghoas.Remove(delete);
+                    db.SaveChanges();
+                }
+                QLKEntities t = new QLKEntities();
+                lvdsHangHoa.ItemsSource = t.hanghoas.ToList();
+                MessageBox.Show("Đã xóa.");
+            }           
         }
 
-        private void lvdsHangHoa_SourceUpdated(object sender, DataTransferEventArgs e)
+        private void Click_Sua(object sender, RoutedEventArgs e)
         {
-
+            var a = new hanghoa();
+            a = (hanghoa)lvdsHangHoa.SelectedItem;
+            SuaHangHoa sua = new SuaHangHoa(a);
+            sua.ShowDialog();
+            LoadDuLieu();
         }
     }
 }

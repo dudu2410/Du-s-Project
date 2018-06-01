@@ -14,13 +14,16 @@
         
         <StackPanel>
             <!--Menu-->
-            <StackPanel Height="auto"  VerticalAlignment="Top">
-                <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
-                         Background="LightSteelBlue"
-                         Height="80"
-                         >
-                    <Button Height="81"
-                            Width="120" Click="Button_dshh">
+            <StackPanel Height="auto"  VerticalAlignment="Top"
+                        Orientation="Horizontal"                        
+                        Background="BlueViolet"
+                        >                
+                    <Button 
+                            Name="Bdshh"
+                            Height="81"
+                            Width="120" Click="Button_dshh"
+                            Background="BlueViolet"
+                        >
                         <StackPanel>
                             <Grid >
                                 <materialDesign:PackIcon
@@ -39,7 +42,8 @@
                         </StackPanel>
                     </Button>
                     <Button Height="81"
-                            Width="100" Click="Button_Nhap">
+                            Width="120" Click="Button_Nhap"
+                            Background="BlueViolet" Name="Bnh">
                         <StackPanel>
                             <Grid >
                                 <materialDesign:PackIcon
@@ -59,7 +63,9 @@
                     </Button>
 
                     <Button Height="81"
-                            Width="100">
+                            Width="100"
+                            Background="BlueViolet" Name="Bxh"
+                            Click="Bxh_Xuat">
                         <StackPanel>
                             <Grid >
                                 <materialDesign:PackIcon
@@ -78,7 +84,9 @@
                         </StackPanel>
                     </Button>                    
                     <Button Height="81"
-                            Width="100">
+                            Width="120"
+                            Background="BlueViolet" Name="Bkh"
+                            Click="Button_KH">
                         <StackPanel>
                             <Grid >
                                 <materialDesign:PackIcon
@@ -88,7 +96,7 @@
                                 Kind="NaturePeople" Grid.ColumnSpan="2" />
                             </Grid>
                             <Grid >
-                                <TextBlock HorizontalAlignment="Center" Height="14" VerticalAlignment="Top"
+                                <TextBlock HorizontalAlignment="Center" Height="16" VerticalAlignment="Top"
                                            >
                                     <Bold>
                                     Khách Hàng</Bold>
@@ -98,7 +106,9 @@
                     </Button>
 
                     <Button Height="81"
-                            Width="100">
+                            Width="100"
+                            Background="BlueViolet" Name="Bk"
+                            Click="Button_Kho">
                         <StackPanel>
                             <Grid >
                                 <materialDesign:PackIcon
@@ -118,7 +128,9 @@
                     </Button>
 
                     <Button Height="81"
-                            Width="100">
+                            Width="100"
+                            Background="BlueViolet" Name="Btk"
+                            Click="Button_TK">
                         <StackPanel>
                             <Grid >
                                 <materialDesign:PackIcon
@@ -138,7 +150,9 @@
                     </Button>
 
                     <Button Height="81"
-                            Width="100">
+                            Width="100"
+                            Background="BlueViolet" Name="Bus"
+                            Click="Button_Us">
                         <StackPanel>
                             <Grid >
                                 <materialDesign:PackIcon
@@ -157,26 +171,27 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Height="81" Click="Button_Exit"
-                            Width="100">
-                        <StackPanel>
-                            <Grid >
-                                <materialDesign:PackIcon
+                <Button Height="81" Click="Button_Exit"
+                            Width="100"
+                        Background="BlueViolet" Name="Bt"
+                        >
+                    <StackPanel>
+                        <Grid >
+                            <materialDesign:PackIcon
                                 HorizontalAlignment="Center"
                                 Width="30"
                                 Height="Auto"
                                 Kind="ExitToApp" Margin="2,0,1,0" VerticalAlignment="Stretch" />
-                            </Grid>
-                            <Grid >
-                                <TextBlock HorizontalAlignment="Right"
+                        </Grid>
+                        <Grid >
+                            <TextBlock HorizontalAlignment="Right"
                                            >
                                     <Bold>
                                     Thoát</Bold>
-                                </TextBlock>
-                            </Grid>
-                        </StackPanel>
-                    </Button>
-                </ToolBar>
+                            </TextBlock>
+                        </Grid>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <!--UserControlChiTiet-->
             <Grid Name="gridUC"

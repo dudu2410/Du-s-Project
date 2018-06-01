@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:QuanLyKho"
         mc:Ignorable="d"       
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Title="Login" Height="500" Width="400">
     <Grid>
         <StackPanel >
